@@ -25,6 +25,14 @@ class Model < ActiveRecord::Base
       type :hadger do
         is_a_witch
       end
+
+      floats_like_a_duck do
+        type :tadger
+      end
+
+      is_a_witch do
+        type :madger
+      end
     end
 
     talks_like_a_duck do
@@ -43,7 +51,7 @@ describe DescendantsDescribable do
 
   describe '.type - for subclass generation' do
     it 'creates new subclass of each type' do
-      [Badger, Hadger, Fadger, Ladger].each do |klass|
+      [Badger, Hadger, Fadger, Ladger, Tadger].each do |klass|
         expect(klass < Model).to be_true
       end
     end
@@ -60,6 +68,12 @@ describe DescendantsDescribable do
       expect(Ladger < Models::Descriptors::FloatsLikeADuck).to be_true
       expect(Ladger < Models::Descriptors::TalksLikeADuck).to be_true
       expect(Ladger < Models::Descriptors::IsAWitch).to be_true
+
+      expect(Tadger < Models::Descriptors::FloatsLikeADuck).to be_true
+      expect(Tadger < Models::Descriptors::WalksLikeADuck).to be_true
+
+      expect(Madger < Models::Descriptors::WalksLikeADuck).to be_true
+      expect(Madger < Models::Descriptors::IsAWitch).to be_true
     end
   end
 end

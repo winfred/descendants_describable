@@ -41,7 +41,7 @@ module DescendantsDescribable
       else
         @common_modules << @description_module.const_get(method.to_s.camelize)
         yield if block_given?
-        @common_modules.shift
+        @common_modules.pop
       end
     end
 
