@@ -42,6 +42,7 @@ class Model < ActiveRecord::Base
         type :ladger do
           is_a_witch
         end
+        type :tadger
       end
     end
   end
@@ -71,6 +72,7 @@ describe DescendantsDescribable do
 
       expect(Tadger < Models::Descriptors::FloatsLikeADuck).to be_true
       expect(Tadger < Models::Descriptors::WalksLikeADuck).to be_true
+      expect(Tadger < Models::Descriptors::TalksLikeADuck).to be_true
 
       expect(Madger < Models::Descriptors::WalksLikeADuck).to be_true
       expect(Madger < Models::Descriptors::IsAWitch).to be_true

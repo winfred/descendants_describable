@@ -25,13 +25,19 @@ module DescendantsDescribable
     end
 
     def type(name)
-      self.new_class = Class.new(@parent)
+
+      self.new_class = begin
+        Object.const_get(name.to_s.camelize)
+      rescue NameError
+        new_class = Class.new(@parent)
+        Object.const_set(name.to_s.camelize, new_class)
+        new_class
+      end
 
       @common_modules.each { |m| self.new_class.send(:include, m) } if @common_modules.any?
 
       yield if block_given?
 
-      Object.const_set(name.to_s.camelize, self.new_class)
       self.new_class = nil
     end
 
