@@ -21,7 +21,7 @@ end
 
 ## Why?
 
-My [blog post](http://winfred.nadeau.io/2014/03/22/taming-the-activities-table/) describes the evolution of this gem at [Hired](hired.com) pretty well.
+My [blog post](http://winfred.nadeau.io/2014/03/22/taming-the-activities-table/) describes the evolution of this gem at [Hired](http://hired.com) pretty well.
 
 TL;DR imagine the example in the [usage section](#usage) with a marketplace's domain described therein.
 
