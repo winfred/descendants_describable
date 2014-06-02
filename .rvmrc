@@ -1,1 +1,1 @@
-rvm ruby-2.0.0@descendants_describable --create
+rvm ruby-2.1.1@descendants_describable --create
