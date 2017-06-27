@@ -97,6 +97,12 @@ end
 
 ```
 
+## Note
+
+You should put any calls to `describe_descendants_with` somewhere where it will only be executed
+once per boot of your app (including code reloading), such as an initializer(s). This is because
+each time you call `describe_descendants_with`, a hook is registered with Rails via
+`ActiveSupport::Reloader.to_run`; you don't want to register duplicate reload hooks.
 
 ## Contributing
 
