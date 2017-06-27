@@ -17,7 +17,7 @@ module DescendantsDescribable
 
     attr_accessor :new_class
 
-    def initialize(parent, description_module, description_proc)
+    def initialize(parent, description_module, description_proc = -> {})
       @common_modules = []
       @descendant_names = []
       @parent = parent
