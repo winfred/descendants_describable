@@ -19,6 +19,10 @@ end
 # in your model
 class Model < ActiveRecord::Base
   include DescendantsDescribable
+
+  def self.description(description = nil)
+    @description ||= description
+  end
 end
 
 # in config/initializers/#{name_of_model}}.rb
@@ -30,7 +34,9 @@ Model.describe_descendants_with(Models::Descriptors) do
     end
 
     floats_like_a_duck do
-      type :tadger
+      type :tadger do
+        description 'used to indicate true duckiness'
+      end
     end
 
     is_a_witch do
@@ -77,6 +83,8 @@ describe DescendantsDescribable do
 
       expect(Madger < Models::Descriptors::WalksLikeADuck).to be_truthy
       expect(Madger < Models::Descriptors::IsAWitch).to be_truthy
+
+      expect(Tadger.description).to eql('used to indicate true duckiness')
     end
   end
 end
